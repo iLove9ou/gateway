@@ -7,6 +7,7 @@ import org.springframework.amqp.rabbit.core.ChannelAwareMessageListener;
 public class Consumer implements ChannelAwareMessageListener {
     @Override
     public void onMessage(Message message, Channel channel) throws Exception {
+
         System.out.println("receive message "+ message);
     }
 }
