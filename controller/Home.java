@@ -21,6 +21,9 @@ public class Home {
     @Autowired
     private BankCreditBusinessManager bankCreditBusinessManager;
 
+    @Autowired
+    Producer producer;
+
     @PostMapping(value = "/credit_apply", consumes = "application/xml", produces = MediaType.APPLICATION_XML_VALUE)
     public Document creditApply(@RequestBody User user00) {
         System.out.println(user00.getId() + ":" + user00.getName());
@@ -29,7 +32,6 @@ public class Home {
 
     @PostMapping(value = "/sendMsg")
     public Document sendMsg() {
-        Producer producer = new Producer();
         producer.send();
 
         return new Document();

@@ -1,6 +1,7 @@
 package com.bank.credit.gateway.mq;
 
 import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -8,13 +9,13 @@ import org.springframework.stereotype.Component;
 public class Producer {
 
     @Autowired
-    private AmqpTemplate rabbitmqTemplate;
+    private AmqpTemplate rabbitTemplate;
 
     public void send() {
 
         String message = "hello";
 
-        rabbitmqTemplate.convertAndSend(message);
+        rabbitTemplate.convertAndSend("q1", message);
 
     }
 }
